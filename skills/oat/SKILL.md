@@ -18,9 +18,10 @@ oat - create a new skill on <Topic or Description>
 
 **Workflow:**
 1.  **Analyze Request**: Understand the goal of the new skill.
-2.  **Create Directory**: Create a new directory in `skills/<skill-name>`.
-3.  **Draft Content**: Write the `SKILL.md` with appropriate frontmatter (`name`, `description`) based on the request.
-4.  **Link (Proactive)**: Detect the user's agent ecosystem and propose the link automatically.
+2.  **Choose Location (required)**: If a canonical skills repo exists (e.g., this oat repo at `.../tao-oat/skills`), create the skill there. If multiple plausible skill roots exist or none can be inferred, explicitly ask the user where to place the new skill before creating anything.
+3.  **Create Directory**: Create a new directory in `skills/<skill-name>` within the chosen skills root (never default to the current working project if it differs from the skills repo).
+4.  **Draft Content**: Write the `SKILL.md` with appropriate frontmatter (`name`, `description`) based on the request.
+5.  **Link (Proactive)**: Detect the user's agent ecosystem and propose the link automatically.
     -   *Detect*: Check for existing skills directories:
         - OpenCode: `~/.config/opencode/skill`
         - Claude Code: `~/.claude/skills`
@@ -53,7 +54,9 @@ skills/<skill-name>/
 ```
 
 ### Skill Rules
--   Always store skills in the `skills/` directory of the repository.
+-   Prefer the canonical skills repo that already contains oat (e.g., `tao-oat/skills`). Do not create skills inside arbitrary current projects unless the user explicitly directs it.
+-   If location is ambiguous, pause to ask the user which skills root to use before creating directories.
+-   Always store skills in the `skills/` directory of the chosen repository.
 -   Skills require a `SKILL.md` with frontmatter (`name`, `description`).
 -   Supporting files (scripts, templates, references) go inside the skill folder alongside `SKILL.md`.
 -   When linking, always use absolute paths for the source.
