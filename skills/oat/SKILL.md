@@ -20,8 +20,12 @@ oat - create a new skill on <Topic or Description>
 1.  **Analyze Request**: Understand the goal of the new skill.
 2.  **Create Directory**: Create a new directory in `skills/<skill-name>`.
 3.  **Draft Content**: Write the `SKILL.md` with appropriate frontmatter (`name`, `description`) based on the request.
-4.  **Link**: Prompt the user to link the new skill to their agent's skills directory.
-    -   *Action*: Ask the user for the target directory path (e.g., `~/.config/opencode/skill` for OpenCode, `~/.claude/skills` for Claude Code) if not already known.
+4.  **Link (Proactive)**: Detect the user's agent ecosystem and propose the link automatically.
+    -   *Detect*: Check for existing skills directories:
+        - OpenCode: `~/.config/opencode/skill`
+        - Claude Code: `~/.claude/skills`
+        - Gemini CLI: `~/.gemini/skills`
+    -   *Action*: If exactly one exists, propose that path and ask for confirmation to run the link. If multiple exist, ask which to use.
     -   *Command*: `ln -s "$(pwd)/skills/<skill-name>" <target_skills_directory>/<skill-name>`
     -   *Safety*: **Always** ask for explicit permission before executing the link command.
 
