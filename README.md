@@ -11,8 +11,8 @@ OpenCode uses the `~/.config/opencode/skill` directory (note: singular `skill`).
 
 ```bash
 # Link all skills
-mkdir -p ~/.config/opencode/skill
-ln -s "$(pwd)/skills/oat" ~/.config/opencode/skill/oat
+mkdir -p ~/.config/opencode
+ln -s "$(pwd)/skills" ~/.config/opencode/skill
 ```
 
 ### Claude Code
@@ -20,8 +20,8 @@ Claude Code uses the `~/.claude/skills` directory (note: plural `skills`).
 
 ```bash
 # Link all skills
-mkdir -p ~/.claude/skills
-ln -s "$(pwd)/skills/oat" ~/.claude/skills/oat
+mkdir -p ~/.claude
+ln -s "$(pwd)/skills" ~/.claude/skills
 ```
 
 ### Gemini CLI
@@ -29,8 +29,8 @@ Gemini CLI uses the `~/.gemini/skills` directory.
 
 ```bash
 # Link all skills
-mkdir -p ~/.gemini/skills
-ln -s "$(pwd)/skills/oat" ~/.gemini/skills/oat
+mkdir -p ~/.gemini
+ln -s "$(pwd)/skills" ~/.gemini/skills
 ```
 
 ## Available Skills
